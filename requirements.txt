@@ -1,0 +1,6 @@
+flask
+#USE
+protobuf<=3.20
+tensorflow-text
+tensorflow-hub
+tensorflow-gpu
