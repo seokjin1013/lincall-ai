@@ -1,2 +1,5 @@
 __pycache__
 .venv
+*.wav
+aihub_character_vocabs.csv
+STT_model.pt

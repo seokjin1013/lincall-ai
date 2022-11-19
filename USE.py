@@ -14,4 +14,4 @@ class USE:
     def __new__(cls, q):
         q_embed = cls.embed(q)
         q_cosine = np.array([cls.metric(e1, q_embed[0]) for e1 in cls.embedded_vectors])
-        return q_cosine.argmax()
+        return cls.questions[q_cosine.argmax()]

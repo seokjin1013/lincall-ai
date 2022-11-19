@@ -1,6 +1,7 @@
 from flask import Flask, request
 import os, sys
-import USE
+from USE import USE
+from STT import STT
 
 app = Flask(__name__)
 
@@ -10,13 +11,15 @@ def hello_world():
 
 @app.route('/init2')
 def init():
-    
     return 'asdf'
 
-@app.route("/question", methods = ['POST'])
+@app.route("/question")
 def question():
-    params = request.get_json()
-    return USE(params['question'])
+    return USE(request.args.get('question'))
+
+@app.route("/STT")
+def speech_to_text():
+    return STT(request.args.get('speech'))
 
 if __name__ == '__main__':
     app.run(debug=True)
