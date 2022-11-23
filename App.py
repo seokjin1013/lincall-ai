@@ -1,17 +1,14 @@
 from flask import Flask, request
-import os, sys
 from USE import USE
 from STT import STT
+from SA import SA
+from Summary import Summary
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
     return 'Hello World!'
-
-@app.route('/init2')
-def init():
-    return 'asdf'
 
 @app.route("/question")
 def question():
@@ -20,6 +17,14 @@ def question():
 @app.route("/STT")
 def speech_to_text():
     return STT(request.args.get('speech'))
+
+@app.route("/sentiment")
+def sentiment_analysis():
+    return SA(request.args.get('sentence'))
+
+@app.route("/summary")
+def summary():
+    return Summary(request.args.get('sentence'))
 
 if __name__ == '__main__':
     app.run(debug=True)
