@@ -3,6 +3,7 @@ from USE import USE
 from STT import STT
 from SA import SA
 from Summary import Summary
+from Wordcloud import Wordcloud
 
 app = Flask(__name__)
 
@@ -16,7 +17,8 @@ def question():
 
 @app.route("/STT")
 def speech_to_text():
-    return STT(request.args.get('speech'))
+    open('tmp_speech.wav', 'wb').write(request.args.get('speech'))
+    return STT('tmp_speech.wav')
 
 @app.route("/sentiment")
 def sentiment_analysis():
@@ -26,5 +28,9 @@ def sentiment_analysis():
 def summary():
     return Summary(request.args.get('sentence'))
 
+@app.route("/wordcloud")
+def wordcloud():
+    return Wordcloud(request.args.get('sentence'))
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True, port=3389)
