@@ -1,3 +1,9 @@
+## USE_model
+
+download model at https://tfhub.dev/google/universal-sentence-encoder-multilingual-large/3
+
+tar -xvzf universal-sentence-encoder-multilingual-large_3.tar.gz
+
 ## STT_model.pt
 
 https://github.com/sooftware/kospeech/issues/154

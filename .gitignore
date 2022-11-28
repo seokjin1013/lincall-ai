@@ -2,4 +2,6 @@ __pycache__
 .venv
 *.wav
 STT_model.pt
+USE_model
 tmp*
+universal-sentence-encoder-multilingual-large_3.tar.gz

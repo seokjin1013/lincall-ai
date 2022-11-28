@@ -3,6 +3,7 @@ from USE import USE
 from STT import STT
 from SA import SA
 from Summary import Summary
+from Keyword import Keyword
 from Wordcloud import Wordcloud
 
 app = Flask(__name__)
@@ -13,7 +14,7 @@ def hello_world():
 
 @app.route("/question")
 def question():
-    return USE(request.args.get('question'))
+    return USE(request.args.get('sentence'))
 
 @app.route("/STT")
 def speech_to_text():
@@ -31,6 +32,10 @@ def summary():
 @app.route("/wordcloud")
 def wordcloud():
     return Wordcloud(request.args.get('sentence'))
+
+@app.route("/keyword")
+def keyword():
+    return Keyword(request.args.get('sentence'))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=3389)
