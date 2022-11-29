@@ -78,3 +78,9 @@ class MeCab:
             surface for surface, feature in self.parse(sentence)
             if feature.pos.startswith('N')
         ]
+
+    def common_nouns(self, sentence):
+        return [
+            surface for surface, feature in self.parse(sentence)
+            if feature.pos == 'NNG'
+        ]

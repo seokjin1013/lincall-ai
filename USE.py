@@ -18,4 +18,6 @@ class USE:
     def __new__(cls, q):
         q_embed = cls.embed(q)
         q_cosine = np.array([cls.metric(e1, q_embed[0]) for e1 in cls.embedded_vectors])
+        if q_cosine.max() < 0.35:
+            return ''
         return cls.questions[q_cosine.argmax()] + '|' + cls.answers[q_cosine.argmax()]

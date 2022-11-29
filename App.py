@@ -31,7 +31,9 @@ def summary():
 
 @app.route("/wordcloud")
 def wordcloud():
-    return Wordcloud(request.args.get('sentence'))
+    sentence = request.args.get('sentence')
+    theme = request.args.get('theme')
+    return Wordcloud(sentence, theme)
 
 @app.route("/keyword")
 def keyword():
