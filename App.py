@@ -1,6 +1,6 @@
 from flask import Flask, request
 from USE import USE
-from STT import STT
+from STT_deprecated import STT
 from SA import SA
 from Summary import Summary
 from Keyword import Keyword
